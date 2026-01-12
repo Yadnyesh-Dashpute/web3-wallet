@@ -1,6 +1,7 @@
 import { Box, Moon, SunMedium } from "lucide-react"
 import { useEffect, useState } from "react"
 
+
 const Header = () => {
 
     const [isDark, setIsDark] = useState<boolean>(false);
@@ -27,22 +28,21 @@ const Header = () => {
         }
     };
 
-
     return (
-        <div className="w-full h-full p-5 sm:p-10">
-            <div className="w-full h-full flex justify-between sm:px-20 items-center">
+        <div className="w-full h-full">
+            <div className="w-full h-full flex justify-between items-center">
                 {/* Left Side */}
                 <div className="flex items-center gap-2 dark:text-white text-black cursor-pointer">
-                    <Box className="sm:scale-125 cursor-pointer" />
+                    <Box className="scale-135 cursor-pointer" />
                     <h1
-                        className="sm:text-3xl text-xl font-bold"
+                        className="text-3xl font-extrabold"
                         style={{ fontFamily: '"Manrope", sans-serif' }}
                     >
                         Orbix
                     </h1>
 
-                    <div className="flex justify-center text-xs sm:text-[12px]">
-                        <span className="rounded-full bg-primary/10 dark:bg-[#202223] border border-primary/50 dark:border-[#828181] px-2">v1.3</span>
+                    <div className="flex justify-center text-xs sm:text-[14px]">
+                        <span className="rounded-full bg-neutral-400/30 dark:bg-[#202223] border border-primary/50 dark:border-[#828181] px-2 py-[4px] font-bold">v1.3</span>
                     </div>
                 </div>
 
