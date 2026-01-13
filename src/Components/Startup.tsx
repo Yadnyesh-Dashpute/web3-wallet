@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import GenerateWallet from './GenerateWallet';
 
 const Startup = () => {
-
     type ChainType = "solana" | "ethereum" | null
     const [selectedChain, setSelectedChain] = useState<ChainType>(null);
+    const resetApp = () => {
+        setSelectedChain(null);
+    };
+    useEffect(() => {
+        const stored = localStorage.getItem("phrase");
+
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.some(w => w.trim() !== "")) {
+                setSelectedChain("solana");
+            }
+        }
+    }, []);
     return (
         <>
             {!selectedChain && (
@@ -32,7 +44,7 @@ const Startup = () => {
             )}
             {selectedChain && (
                 <div className='animate-slideIn'>
-                    <GenerateWallet />
+                    <GenerateWallet onReset={resetApp} />
                 </div>
             )}
         </>
